@@ -41,4 +41,8 @@ def detect_emotion():
 if __name__ == '__main__':
     if not os.path.exists('static/uploads'):
         os.makedirs('static/uploads')
-    app.run(debug=True)
+    
+    # Usa el puerto proporcionado por Render o 5000 por defecto
+    port = int(os.environ.get('PORT', 5000))
+    # Ejecuta la aplicación en 0.0.0.0 para que sea accesible desde el exterior
+    app.run(debug=True, host='0.0.0.0', port=port)
